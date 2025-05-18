@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portofolio REST API - FR3 HOSTING</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .profile {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #2c3e50;
+    }
+
+    .profile h1 {
+      margin: 10px 0;
+      color: #2c3e50;
+    }
+
+    .description,
+    .skills,
+    .info-box {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .description p {
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .skill-bar {
+      margin: 10px 0;
+    }
+
+    .skill-bar label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .bar {
+      background-color: #ddd;
+      border-radius: 25px;
+      overflow: hidden;
+    }
+
+    .bar div {
+      height: 20px;
+      text-align: right;
+      padding-right: 10px;
+      color: white;
+      line-height: 20px;
+    }
+
+    .info-box h3 {
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .info-item {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #2980b9;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .stat-card {
+      background-color: #eef6ff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: 0.3s ease;
+    }
+
+    .stat-card h2 {
+      font-size: 24px;
+      margin: 0;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .stat-card p {
+      font-size: 14px;
+      margin-top: 8px;
+      color: #64748b;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .kita {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #2c3e50;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.5rem 0;
+      z-index: 999;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.15);
+    }
+
+    .kita button {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .kita button:hover {
+      color: #00bcd4;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ADMIN REST API</h1>
+</header>
+
+<div class="profile">
+  <img src="https://img1.pixhost.to/images/5723/598140686_fr3hosting.jpg" alt="Foto Profil FR3 HOSTING">
+  <h1>FR3 HOSTING</h1>
+</div>
+
+<div class="description">
+  <h2>Apa itu REST API?</h2>
+  <p>REST API (Representational State Transfer Application Programming Interface) adalah antarmuka yang memungkinkan berbagai aplikasi saling berkomunikasi melalui protokol HTTP. REST API bersifat ringan dan fleksibel, sangat cocok untuk pengembangan web modern.</p>
+</div>
+
+<div class="skills">
+  <h2>Performance Bahasa Pemrograman</h2>
+  <div class="skill-bar">
+    <label>HTML - 90%</label>
+    <div class="bar">
+      <div style="width: 90%; background-color: #e67e22;">90%</div>
+    </div>
+  </div>
+  <div class="skill-bar">
+    <label>JavaScript - 89%</label>
+    <div class="bar">
+      <div style="width: 89%; background-color: #27ae60;">89%</div>
+    </div>
+  </div>
+  <div class="skill-bar">
+    <label>CSS - 100%</label>
+    <div class="bar">
+      <div style="width: 100%; background-color: #9b59b6;">100%</div>
+    </div>
+  </div>
+</div>
+
+<div class="info-box">
+  <h3>Informasi Tambahan</h3>
+  <div class="info-item">Baterai User: <span id="battery-level" class="highlight">Memuat...</span></div>
+  <div class="info-item">Waktu (WIB): <span id="time-wib" class="highlight">Memuat...</span></div>
+  <div class="info-item">Total Endpoint: <span id="total-endpoint" class="highlight">Memuat...</span></div>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card">
+    <h2 id="total-endpoint">...</h2>
+    <p>Total Endpoint</p>
+  </div>
+</div>
+
+<div class="kita">
+  <a href="/" title="Home">
+    <button><i class="fas fa-home"></i></button>
+  </a>
+  <a href="admin.html" title="Settings">
+    <button><i class="fas fa-cog"></i></button>
+  </a>
+</div>
+
+<script>
+  // API real-time status
+  fetch('/api/status')
+    .then(res => res.json())
+    .then(data => {
+      if (data.status && data.result) {
+        document.getElementById("total-endpoint").textContent = data.result.totalfitur || 'N/A';
+        document.getElementById("total-api").textContent = data.result.totalfitur || 'N/A';
+        document.getElementById("total-users").textContent = data.result.totaluser || 'N/A';
+        document.getElementById("today-requests").textContent = data.result.todayreq || 'N/A';
+        document.getElementById("requests-per-day").textContent = data.result.reqperday || 'N/A';
+        document.getElementById("total-requests").textContent = data.result.totalreq || 'N/A';
+        document.getElementById("avg-response").textContent = data.result.avgresponse || 'N/A';
+        document.getElementById("success-rate").textContent = data.result.successrate || 'N/A';
+        document.getElementById("error-rate").textContent = data.result.errorrate || 'N/A';
+      } else {
+        document.querySelectorAll('.stat-card h2').forEach(el => el.textContent = 'N/A');
+      }
+    })
+    .catch(err => {
+      console.error('Gagal mengambil data:', err);
+      document.querySelectorAll('.stat-card h2').forEach(el => el.textContent = 'Error');
+    });
+
+  // Baterai
+  navigator.getBattery().then(function(battery) {
+    function updateBatteryStatus() {
+      document.getElementById("battery-level").textContent = Math.round(battery.level * 100) + "%";
+    }
+    updateBatteryStatus();
+    battery.addEventListener("levelchange", updateBatteryStatus);
+  });
+
+  // Waktu WIB
+  function updateTime() {
+    const now = new Date();
+    const wib = new Date(now.getTime() + (7 * 60 * 60 * 1000));
+    const hours = String(wib.getUTCHours()).padStart(2, '0');
+    const minutes = String(wib.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(wib.getUTCSeconds()).padStart(2, '0');
+    document.getElementById("time-wib").textContent = `${hours}:${minutes}:${seconds}`;
+  }
+  setInterval(updateTime, 1000);
+  updateTime();
+</script>
+
+</body>
+</html>
