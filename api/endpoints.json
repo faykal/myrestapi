@@ -83,13 +83,19 @@
       "path": "/download/videy?url="
     },
     {
-      "name": "Ytmp4",
+      "name": "YouTube Video",
       "desc": "Downloader Youtube mp4",
       "status": "Active",
       "path": "/download/ytmp4?url="
     },
     {
-      "name": "Ytmp3",
+      "name": "YouTube Play",
+      "desc": "Play Song On Youtube",
+      "status": "Active",
+      "path": "/download/play?q="
+    },
+    {
+      "name": "YouTube Audio",
       "desc": "Downloader Youtube mp3",
       "status": "Active",
       "path": "/download/ytmp3?url="
